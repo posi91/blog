@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ES">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="OPENSSL - Fallo Seguridad  (CVE-2014-0160), Un atacante puede obtener sesiones de cualquier usuario autenticado en el momento en el servidor.">
+    <meta name="author" content="Jonathan Posada">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>OPENSSL - Fallo Seguridad  (CVE-2014-0160)</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/blog.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item" href="/">Inicio</a>
+          <a class="blog-nav-item active" href="#">Blog</a>
+          <a class="blog-nav-item active" href="#">Blog</a>
+          <a class="blog-nav-item" href="#">Proyectos</a>
+          <a class="blog-nav-item" href="#">Contacto</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">Un Informatico con Linux</h1>
+        <p class="lead blog-description">Blog Itodosoft-Sec</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <div class="well">
+              <h2 class="blog-post-title">Vulnerando Windows XP en 5 minutos - La importancia de tus datos y migración a una distribución linux.</h2>
+            </div>
+            <p class="blog-post-meta"><span class="glyphicon glyphicon-calendar"></span>Miercoles 19 de Febrero <span class="glyphicon glyphicon-user">@po51</span></p>
+            <p><iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/5IlxtAD9Zio" frameborder="0"></iframe></p>
+            <br />
+            <p>
+              <h3>Introducción</h3><hr>
+              Este es un video con fines educativos.
+              Se trata de una vulnerabilidad para la ejecución remota de código. Un atacante que aprovechara esta vulnerabilidad podría tomar el control completo de un sistema afectado de forma remota. En los sistemas basados en Microsoft Windows 2000, Windows XP y Windows Server 2003, un atacante podría aprovechar esta vulnerabilidad sobre RPC sin autenticación y ejecutar código arbitrario. Si falla el intento de aprovecharse de esta vulnerabilidad, también podría dar lugar a un bloqueo en Svchost.exe. Si se produce dicho bloqueo, afectará al servicio del servidor. El servicio del servidor proporciona compatibilidad con el uso compartido de archivos, impresoras y canalizaciones con nombre a través de la red.
+
+              La causa de esta vulnerabilidad es el servicio del servidor, que no controla correctamente las solicitudes de RPC especialmente elaboradas para ello.
+
+              
+              <hr><h3>Didulación</h3><hr>
+              Se muestra la importancia de que este año Microsoft a anunciado que dejara de dar soporte a Windows XP, a raíz de esto como ya muchos sabemos existen diversidad de fallos de seguridad sobre esta plataforma que podríamos explotar fácilmente con metasploit.
+
+              Te importa tu información ? Si tienes windows xp te aconsejaron que migraras a Ubuntu o mejor aun a Debian o a otra distribución linux, ya sea por que tu maquina es vieja, es anticuada en hardware y no podes migrar a win 7, una solución seria el software libre, igual que muchos fui "Windolero" a raiz del tiempo de mi manera de pensar de ver las cosas, me pase a linux comencé con Ubuntu recuerdo tanto, después me pase a Linux Mint, también tuve de sistema base backtrack pero no te lo recomiendo a caso de que te dediques al pentesting, por ultimo conocí debian tengo que admitirlo es la distribución mas estable, y mas cuando un bruto como yo tiene debían rompemos paquetes en fin y aun así sigue estable, rápido, y con todo lo que necesito.
+              Accesorios, gráficos, Internet, juegos(steam), programación, multimedia,
+              libre office, herramientas de diseño, herramientas para desarrollo web, herramientas para consultoria de seguridad informática, en fin tengo una gran cantidad de herramientas desde synaptic, puedo añadir repositorios para instalar cualquier otra herramienta de otra distribución linux. 
+              Bueno esto solo era un mensaje y un ejmplo de lo que podira pasarle a tu preciosa maquina con windows xp, decidete el software libre es una buena desicion.
+
+            </p>
+            <br />
+            <p>
+            <h3>Requerimientos</h3><hr>
+            <p>Requerimientos para explotar dicha vulnerabilidad (Conocimientos previos en metasploit y nmap):</p>
+              <ul>
+                <li>Kali linux - Backtrack u otra distribución linux con las siguientes herramientas</li>
+                <li>Metasploit</li>
+                <li>Nmap</li>
+              </ul>
+              <br />            
+            </p>
+            <hr>
+            
+          </div><!-- /.blog-post -->
+
+          <ul class="pager">
+            <li><a href="index.html">Previous</a></li>
+            <li><a href="sslstrip.html">Next</a></li>
+          </ul>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Jonathan Posada</h4>
+            <img src="img/posi.jpg" alt="Cofundador Itodosoft" class="img-circle">
+            <p><br>Tecnologo Analista desarrollador de software. <br>Intereses seguridad informatica, linux, software libre. </p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li>
+              <li><a href="#">March 2013</a></li>
+              <li><a href="#">February 2013</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Sigueme en las redes sociales</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="http://www.youtube.com/channel/UCLruzL7n2W0ZhVL7BlGulGQ/videos">Youtube</a></li>
+              <li><a href="https://www.facebook.com/js.po51">Facebook</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <div class="blog-footer">
+      <p>Blog ITodoSoft</a>.</p>
+      <p>
+        <a href="#">2014</a>
+      </p>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+  </body>
+</html>

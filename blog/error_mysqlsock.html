@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=" El dia de hoy me encontré con un error en el “emma”, que es mi software para la gestión de bases de datos el error era el siguiente  '/ var / run / mysqld / mysqld.sock' (2) '  a continuacion te cuento como lo solucione con un poco de ayuda que encontre en  http://stackoverflow.com/">
+    <meta name="author" content="Jonathan Posada">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Error: '/ var / run / mysqld / mysqld.sock' (2) ' </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/blog.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item" href="#">Inicio</a>
+          <a class="blog-nav-item active" href="#">Blog</a>
+          <a class="blog-nav-item" href="#">Proyectos</a>
+          <a class="blog-nav-item" href="#">Contacto</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">Un Informatico con Linux</h1>
+        <p class="lead blog-description">Blog Itodosoft-Sec</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <div class="well">
+              <h2 class="blog-post-title">Solucion Error: '/ var / run / mysqld / mysqld.sock' (2) ' </h2>
+            </div>
+            <p class="blog-post-meta">Viernes 14 de Febrero @po51</p>
+            <p><img width="100%" height="100%" src="img/mysql_error.png"></p>
+            <br />
+            <p>
+              El dia de hoy me encontré con un error en el “emma”, que es mi software para la gestión de bases de datos el error era el siguiente  '/ var / run / mysqld / mysqld.sock' (2) '  a continuacion te cuento como lo solucione con un poco de ayuda que encontre en  http://stackoverflow.com/
+              
+              <hr>
+              Error: '/ var / run / mysqld / mysqld.sock' (2) ' 
+              Abrimos una terminal como super-usuario ‘su root’, y escribimos lo siguiente: 
+
+              <pre><code>root@posi:/home/posi# find / -type s</code></pre>
+
+
+              Buscamos la ruta en donde se encuentre corriendo el "mysql.sock" en mi caso es: 
+
+              <pre><code>/opt/lampp/var/mysql/mysql.sock</code></pre>
+
+
+              Abrimos con nano u otro editor de texto, el archivo '/etc/mysql/my.cnf', en alguno de los casos esta ruta podría cambiar a '/etc/my.cnf' 
+              <pre><code>root@posi:/home/posi# nano /etc/mysql/my.cnf</code></pre>
+
+
+              Editamos donde dice 'socket=' y añadimos la ruta que nos dio el comando 'find / -type s' de donde se encuentra el socket quedando así: 
+              <pre><code>
+              # 
+              # * Basic Settings 
+              # 
+              user            = mysql 
+              pid-file        = /var/run/mysqld/mysqld.pid 
+              socket          = /opt/lampp/var/mysql/mysql.sock #Aquí añadimos la ruta del mysql.sock :) 
+              port            = 3306 
+              basedir         = /usr 
+              datadir         = /var/lib/mysql 
+              tmpdir          = /tmp 
+              lc-messages-dir = /usr/share/mysql 
+              skip-external-locking 
+              # 
+              </code></pre>
+              Guardamos los cambios.
+
+              <pre><code>root@posi:/home/posi# cd /var/run</code></pre>
+
+              <pre><code>root@posi:/var/run# mkdir mysqld</code></pre>
+
+
+              Creamos el directorio mysqld, el cual va contener el enlace de /opt/lampp/var/mysql/mysql.sock 
+              Crear enlace 
+              <pre><code>root@posi:/var/run#ln -s /opt/lampp/var/mysql/mysql.sock /var/run/mysqld.sock</code></pre>
+
+
+              ok, con esto debería desaparecer el error, lo que sucede es que no existe tal socket en /var/run, por ello necesitamos crear el directorio mysqld, 
+              y crear un enlace simbólico desde la ruta del socket. 
+
+              Espero les sirva, saludos. 
+            </p>
+            <hr>
+            
+          </div><!-- /.blog-post -->
+
+          <ul class="pager">
+            <li><a href="sslstrip.html">Previous</a></li>
+            <li><a href="index.html">Next</a></li>
+          </ul>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Jonathan Posada</h4>
+            <img src="img/posi.jpg" alt="Cofundador Itodosoft" class="img-circle">
+            <p><br>Tecnologo Analista desarrollador de software. <br>Intereses seguridad informatica, linux, software libre. </p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li>
+              <li><a href="#">March 2013</a></li>
+              <li><a href="#">February 2013</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Sigueme en las redes sociales</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="http://www.youtube.com/channel/UCLruzL7n2W0ZhVL7BlGulGQ/videos">Youtube</a></li>
+              <li><a href="https://www.facebook.com/js.po51">Facebook</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <div class="blog-footer">
+      <p>Blog ITodoSoft</a>.</p>
+      <p>
+        <a href="#">2014</a>
+      </p>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+  </body>
+</html>

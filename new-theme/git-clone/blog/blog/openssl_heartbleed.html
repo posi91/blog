@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ES">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="OPENSSL - Fallo Seguridad  (CVE-2014-0160), Un atacante puede obtener sesiones de cualquier usuario autenticado en el momento en el servidor.">
+    <meta name="author" content="Jonathan Posada">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>OPENSSL HEARTBLEED - Fallo Seguridad  (CVE-2014-0160)</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/blog.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item" href="/">Inicio</a>
+          <a class="blog-nav-item active" href="blog.html">Blog</a>
+          <a class="blog-nav-item" href="/">Proyectos</a>
+          <a class="blog-nav-item" href="/">Contacto</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">Un Informático con Linux</h1>
+        <p class="lead blog-description">Blog Itodosoft-Sec</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <div class="well">
+              <h2 class="blog-post-title">OPENSSL HEARTBLEED - Fallo Seguridad  (CVE-2014-0160) Corazón Sangrante.</h2>
+            </div>
+            <p class="blog-post-meta"><span class="glyphicon glyphicon-calendar"></span>Jueves 10 de Abril 2014.<span class="glyphicon glyphicon-user">@po51</span></p>
+            <p><iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/7O9dxVnxdnQ" frameborder="0"></iframe></p>
+            <br />
+            <p>
+              <h3>Introducción</h3><hr>
+              Este es un vídeo con fines educativos.
+              A continuación hablaremos un poco sobre el tema de moda en cuestión de seguridad informática <b>OPENSSL HEARTBLEED - Fallo Seguridad  (CVE-2014-0160)</b>, la vulnerabilidad encontrada por el grupo de Seguridad de Google llamado "Neel Mehta", reporto sobre la falla a la organización openSSL, lo que se destaca de esto fue la rapidez de los parches y soluciones que dio openSSL ante el Bug de seguridad que afecta a una gran mayoría de servidores en le mundo
+              </p>
+              <hr>
+              <h3>Herramientas</h3>
+              <ul>
+                <li>Distribución GNU/linux *Esencial</li>
+                <li>whatweb <'domain'></li>
+                <li>Nmap</li>
+                <li>metasploit</li>
+                <li><a href="https://github.com/rapid7/metasploit-framework/blob/master/modules/auxiliary/scanner/ssl/openssl_heartbleed.rb" >ssltest.py </a></li>
+              </ul>
+
+              <p>Referencias : <a href="http://www.hackplayers.com/2014/04/pocs-para-explotar-masivamente-Heartbleed.html">http://www.hackplayers.com/2014/04/pocs-para-explotar-masivamente-Heartbleed.html</a></p>
+            
+          </div><!-- /.blog-post -->
+
+
+          <ul class="pager">
+            <li><a href="index.html">Previous</a></li>
+            <li><a href="sslstrip.html">Next</a></li>
+          </ul>
+
+        </div><!-- /.blog-main -->
+
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Jonathan Posada</h4>
+            <img src="img/posi.jpg" alt="Cofundador Itodosoft" class="img-circle">
+            <p><br>Tecnologo Analista desarrollador de software. <br>Intereses seguridad informatica, linux, software libre. </p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li>
+              <li><a href="#">March 2013</a></li>
+              <li><a href="#">February 2013</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Sigueme en las redes sociales</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="http://www.youtube.com/channel/UCLruzL7n2W0ZhVL7BlGulGQ/videos">Youtube</a></li>
+              <li><a href="https://www.facebook.com/js.po51">Facebook</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <div class="blog-footer">
+      <p>Blog ITodoSoft</a>.</p>
+      <p>
+        <a href="#">2014</a>
+      </p>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+  </body>
+</html>
