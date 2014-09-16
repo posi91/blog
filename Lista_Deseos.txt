@@ -6,6 +6,8 @@ http://itodosoft.hol.es
 
 Lista de deseos
 
+*Pegar un porro :)
+
 *Pensar en lenguaje al lado del servidor, manejar inicio de sesion en la
 pagina y el blog.
 
